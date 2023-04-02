@@ -49,7 +49,7 @@ pre = model.predict(D_pre)
 mse=np.abs(y_pre[:] - pre).mean()
 mean=np.abs(y_pre[:]).mean()
 value=100-mse*100/mean
-print(str(value)+"%")# This is a value for evaluating the proformence of model
+print(str(value)+"%")# This is a value for evaluating the proformence of our model
 
 plt.plot(D_pre, y_pre, 'b')
 plt.plot(D_pre, pre, 'r')
