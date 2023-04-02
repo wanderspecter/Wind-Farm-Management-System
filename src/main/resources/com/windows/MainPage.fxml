@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@../res/turbine.jpg"/>
+         </image>
+      </ImageView>
+      <Label contentDisplay="CENTER" layoutX="146.0" layoutY="55.0" prefHeight="49.0" prefWidth="308.0" text="hello"
+             textAlignment="CENTER" textFill="#a60a82" wrapText="true">
+         <font>
+            <Font name="Let's go Digital Regular" size="44.0"/>
+         </font>
+      </Label>
+      <Button layoutX="193.0" layoutY="268.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0"
+              text="Sign in"/>
+      <Button layoutX="321.0" layoutY="268.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0"
+              text="Sign up"/>
+      <TextField layoutX="193.0" layoutY="158.0" prefHeight="23.0" prefWidth="214.0" promptText="account">
+         <font>
+            <Font size="13.0"/>
+         </font>
+      </TextField>
+      <TextField layoutX="193.0" layoutY="215.0" prefHeight="23.0" prefWidth="214.0" promptText="password">
+         <font>
+            <Font size="13.0"/>
+         </font>
+      </TextField>
+      <Arc fill="DODGERBLUE" layoutX="163.0" layoutY="287.0" length="270.0" radiusX="17.0" radiusY="13.0"
+           startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND"/>
+   </children>
+</AnchorPane>

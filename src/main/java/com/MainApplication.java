@@ -1,23 +1,20 @@
 package com;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import com.windows.pages.IPage;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class MainApplication extends Application {
+public class MainApplication extends IPage {
     public static void main(String[] args) {
         launch();
     }
 
+    public static IPage iPage;
+
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/com/windows/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) throws Exception {
+        // MainApplication.stage = stage;
+
+        //changePage(new LoginPage()); // 启动页
     }
+
 }

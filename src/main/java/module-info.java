@@ -15,4 +15,5 @@ module com.system.windfarm {
     exports com.windows.pages;
     exports com.windows.controller;
     opens com.windows.controller to javafx.fxml;
+    exports com.windows.pages.impls;
 }
