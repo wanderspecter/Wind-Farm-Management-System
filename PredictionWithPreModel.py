@@ -46,9 +46,6 @@ value=100-mse*100/mean
 print(str(value)+"%")# This is a value for evaluating the proformence of our model
 output=pd.DataFrame(pre.T)
 output=output.values.tolist()
-output=str(output)
-output=pd.DataFrame(pre.T)
-output=output.values.tolist()
 s_output= ""
 for i in output:
     s_output+=(str(i[0])+" ")
