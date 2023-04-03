@@ -53,7 +53,13 @@ print(str(value)+"%")# This is a value for evaluating the proformence of our mod
 output=pd.DataFrame(pre.T)
 output=output.values.tolist()
 output=str(output)
-print(output)
+output=pd.DataFrame(pre.T)
+output=output.values.tolist()
+s_output= ""
+for i in output:
+    s_output+=(str(i[0])+" ")
+print(s_output)
+
 
 plt.plot(D_pre, y_pre, 'b')
 plt.plot(D_pre, pre, 'r')
