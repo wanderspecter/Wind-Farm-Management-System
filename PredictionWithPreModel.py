@@ -10,7 +10,7 @@ first_pre_time=10
 last_pre_time=25
 pre_cnt=last_pre_time-first_pre_time
 
-file_url="D:\py_project\pythonProject\datas\J00252\机组发电功率数据.xlsx"
+file_url=".\datas\J00252\机组发电功率数据.xlsx"
 data_tr = pd.read_excel(file_url,sheet_name=0,header=0)
 X_train= data_tr.iloc[0:train_cnt, 0]
 y_train= data_tr.iloc[0:train_cnt, 2]
@@ -44,6 +44,10 @@ mse=np.abs(y_pre[:] - pre).mean()
 mean=np.abs(y_pre[:]).mean()
 value=100-mse*100/mean
 print(str(value)+"%")# This is a value for evaluating the proformence of our model
+output=pd.DataFrame(pre.T)
+output=output.values.tolist()
+output=str(output)
+print(output)
 
 plt.plot(D_pre, y_pre, 'b')
 plt.plot(D_pre, pre, 'r')
