@@ -43,7 +43,7 @@ model = MLPRegressor(hidden_layer_sizes=(7,), random_state=10,
                      )  # Define the BPNeuralNetworkRegressor model
 model.fit(std_X_train, y_train)  # Fit in datas and train model
 y_pre = model.predict(std_X_pre)
-joblib.dump(model,"saved_model/MLP_ver2.0")
+joblib.dump(model,"save_model/MLP_ver2.0")
 
 mse = np.abs(y_true - y_pre).mean()
 # print(mse)
