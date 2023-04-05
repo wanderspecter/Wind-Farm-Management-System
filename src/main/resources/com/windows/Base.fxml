@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXFillButton?>
+<?import com.leewyatt.rxcontrols.pane.RXCarouselPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="700.0" prefWidth="1100.0" styleClass="root"
+            xmlns="http://javafx.com/javafx/19">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                  prefHeight="680.0" prefWidth="1080.0" styleClass="content-pane">
+         <children>
+            <HBox layoutX="-4.0" layoutY="-3.0" prefHeight="407.0" prefWidth="608.0" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox id="btn" prefHeight="680.0" prefWidth="312.0">
+                     <children>
+                        <RXFillButton id="btn1" prefHeight="170.0" stylesheets="@../css/base.css" text="风电机管理"/>
+                        <RXFillButton id="btn2" prefHeight="170.0" stylesheets="@../css/base.css" text="数据监控"/>
+                        <RXFillButton id="btn3" prefHeight="170.0" prefWidth="311.0" stylesheets="@../css/base.css"
+                                      text="维护管理"/>
+                        <RXFillButton id="btn4" prefHeight="196.0" prefWidth="170.0" stylesheets="@../css/base.css"
+                                      text="用户管理"/>
+                     </children>
+                  </VBox>
+                  <RXCarouselPane prefHeight="680.0" prefWidth="777.0">
+                     <top>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <items>
+                              <Label id="title" prefHeight="71.0" prefWidth="471.0" stylesheets="@../css/base.css"
+                                     text="风电场管理系统">
+                                 <font>
+                                    <Font size="18.0"/>
+                                 </font>
+                              </Label>
+                              <Label id="now-time" layoutX="10.0" layoutY="11.0" prefHeight="33.0" prefWidth="281.0"
+                                     stylesheets="@../css/base.css" text="2021-08-08  00:00:00" wrapText="true"/>
+                           </items>
+                        </ToolBar>
+                     </top>
+                  </RXCarouselPane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+   </padding>
+</BorderPane>

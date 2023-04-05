@@ -1,19 +1,20 @@
 package com.windows.pages.impls;
 
 import com.MainApplication;
-import com.windows.pages.IPage;
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainPage extends IPage {
+public class ComponentUser extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/com/windows/MainPage.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/com/windows/ComponentUser.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        this.stage = stage;
-        stage.setTitle("Hello!");
+        stage.setTitle("Welcome to WindFarm Management System!");
         stage.setScene(scene);
         stage.show();
     }
+
 }

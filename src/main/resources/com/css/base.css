@@ -1,0 +1,29 @@
+#btn1 {
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-size: 26px;
+}
+
+#btn2 {
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-size: 26px;
+}
+
+#btn3 {
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-size: 26px;
+}
+
+#btn4 {
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-size: 26px;
+}
+
+#title {
+    -fx-font-family: '方正姚体';
+    -fx-font-size: 44px;
+}
+
+#now-time {
+    -fx-font-size: 32px;
+    -fx-font-family: "Let's go Digital";
+}

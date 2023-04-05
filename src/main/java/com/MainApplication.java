@@ -1,6 +1,7 @@
 package com;
 
 import com.windows.pages.IPage;
+import com.windows.pages.impls.PageUser;
 import javafx.stage.Stage;
 
 public class MainApplication extends IPage {
@@ -12,9 +13,13 @@ public class MainApplication extends IPage {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // MainApplication.stage = stage;
-
-        //changePage(new LoginPage()); // 启动页
+        IPage.defaultStage = stage;
+        defaultStage.setResizable(false);
+        // LoginPage loginPage = new LoginPage();
+        // loginPage.start(stage);
+        //PageWindFarm pageWindFarm = new PageWindFarm();
+        //pageWindFarm.start(defaultStage);
+        PageUser pageUser = new PageUser();
+        pageUser.start(defaultStage);
     }
-
 }

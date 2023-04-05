@@ -8,15 +8,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
-    private static String url = "jdbc:mysql://45.77.206.231:3306/javawork"; // 指定数据库的位置
-    private static String user = "root"; // 数据库的用户名
-    private static String password = "123"; //数据库密码
-
     private static JDBC jdbc;
 
     static {
         try {
-            jdbc = new JDBC(url, user, password);
+            jdbc = JDBC.getDefault();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
@@ -40,26 +36,24 @@ public class Main {
             System.out.println(p.getcValue());
             System.out.println(p.getcTime());
         }
-        sql = "insert into user values(1001, 'wander', 'specter', 1);";
-        jdbc.CUDSql(sql);
         jdbc.close();
     }
 
-    public static void login() {
-    }
-
-    public static void register() {
-    }
-
-    public static void init() {
-    }
-
-    public static void queryTurbine() {
-    }
-
-    public static void queryTable() {
-    }
-
-    public static void getDownload() {
-    }
+//    public static void login() {
+//    }
+//
+//    public static void register() {
+//    }
+//
+//    public static void init() {
+//    }
+//
+//    public static void queryTurbine() {
+//    }
+//
+//    public static void queryTable() {
+//    }
+//
+//    public static void getDownload() {
+//    }
 }
