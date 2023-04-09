@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXFillButton?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" id="btn" prefHeight="623.0" prefWidth="234.0"
+      xmlns="http://javafx.com/javafx/11" fx:controller="com.windows.controller.ComponentNavigateController"
+      stylesheets="@../css/base.css">
+    <children>
+        <RXFillButton id="btn1" fx:id="bnt_turb" onAction="#onBntTurb" onMouseClicked="#onBntTurb" prefHeight="170.0"
+                      stylesheets="@../css/base.css" text="风电机管理"/>
+        <RXFillButton id="btn2" fx:id="bnt_data" onAction="#onBntData" prefHeight="170.0" stylesheets="@../css/base.css"
+                      text="数据监控"/>
+        <RXFillButton id="btn3" fx:id="bnt_rep" onAction="#onBntRep" prefHeight="170.0" prefWidth="311.0"
+                      stylesheets="@../css/base.css" text="维护管理"/>
+        <RXFillButton id="btn4" fx:id="bnt_user" onAction="#onBntUser" onMouseClicked="#onBntUser" prefHeight="173.0"
+                      prefWidth="227.0" stylesheets="@../css/base.css" text="用户管理"/>
+    </children>
+</VBox>

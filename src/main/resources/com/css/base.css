@@ -1,29 +1,129 @@
+.root {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+
+}
+
+.button {
+    -fx-background-color: #c5bf63;
+    -fx-border-radius: 10px;
+}
+
+#update {
+    -fx-background-color: #c5bf63;
+    -fx-border-radius: 10px;
+}
+
+#delete {
+    -fx-background-color: #c5bf63;
+}
+
+.choice-box {
+    -fx-background-color: #c5bf63;
+    -fx-mark-color: #191810;
+}
+
+
+.choice-box > .label {
+    -fx-text-fill: white;
+}
+
+#Tool {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+}
+
+#tab {
+    -fx-background-color: #dbd79e;
+
+}
+
+#tab1 {
+    -fx-background-color: #dbd79e;
+}
+
+#tab2 {
+    -fx-background-color: #dbd79e;
+}
+
+#table {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+
+}
+
+#border {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+
+}
+
+#table_real_turb {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+}
+
+#table_pre_turb {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+}
+
+#table_real_farm {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+
+
+}
+
+#table_pre_farm {
+    -fx-background-size: stretch stretch;
+    -fx-background-position: center center;
+    -fx-background-color: #dbd79e;
+}
+
+
 #btn1 {
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-font-size: 26px;
+    -fx-background-color: #dbd79e;
 }
 
 #btn2 {
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-font-size: 26px;
+    -fx-background-color: #dbd79e;
 }
 
 #btn3 {
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-font-size: 26px;
+    -fx-background-color: #dbd79e;
 }
 
 #btn4 {
     -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -fx-font-size: 26px;
+    -fx-background-color: #dbd79e;
 }
 
 #title {
-    -fx-font-family: '方正姚体';
+    -fx-font-family: 'Arial';
     -fx-font-size: 44px;
 }
 
 #now-time {
     -fx-font-size: 32px;
-    -fx-font-family: "Let's go Digital";
+    -fx-font-family: "宋体";
+    -fx-font-weight: bold;
 }
+

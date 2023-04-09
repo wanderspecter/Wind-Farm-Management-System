@@ -17,9 +17,9 @@ public class JDBC {
     private PreparedStatement statement;
     private Connection connection;
 
-    private static String defaultUrl = "jdbc:mysql://45.77.206.231:3306/javawork"; // 指定数据库的位置
+    private static String defaultUrl = "jdbc:mysql://1.117.84.42:3306/javawork"; // 指定数据库的位置
     private static String defaultUser = "root"; // 数据库的用户名
-    private static String defaultPassword = "123"; //数据库密码
+    private static String defaultPassword = "root1234"; //数据库密码
 
     public static JDBC getDefault() throws SQLException, ClassNotFoundException {
         return new JDBC(defaultUrl, defaultUser, defaultPassword);
@@ -111,4 +111,5 @@ public class JDBC {
         connection.close();
         statement.close();
     }
+
 }

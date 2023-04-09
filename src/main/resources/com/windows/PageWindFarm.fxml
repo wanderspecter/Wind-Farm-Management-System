@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
-            fx:controller="com.windows.controller.PageWindFarmController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/11">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <top>
-                  <fx:include source="title.fxml"/>
+                  <fx:include source="ComponentTitle.fxml"/>
                </top>
                <center>
-                  <fx:include source="tab01.fxml"/>
+                  <fx:include source="ComponentWindFarm.fxml"/>
                </center>
             </BorderPane>
          </center>
          <left>
-            <fx:include source="navigate.fxml"/>
+            <fx:include source="ComponentNavigate.fxml"/>
          </left>
       </BorderPane>
    </children>

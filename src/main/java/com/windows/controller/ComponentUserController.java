@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.leewyatt.rxcontrols.controls.RXLineButton;
 import com.system.data.UserData;
 import com.system.mysql.JDBC;
+import com.system.utils.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -51,10 +53,21 @@ public class ComponentUserController {
     private TextField select_user;
     @FXML
     private TableView<UserData> table;
+
+    @FXML
+    private JFXButton gen;
     @FXML
     private RXLineButton update;
     @FXML
     private TableColumn<UserData, String> user;
+
+    @FXML
+    void onGen(ActionEvent event) {
+        File file = Tools.openWindow();
+        if (file != null) {
+            Tools.getXlsx(file, data, UserData.class);
+        }
+    }
 
     @FXML
     void onDeleteButton(ActionEvent event) throws Exception {
@@ -79,7 +92,8 @@ public class ComponentUserController {
     @FXML
     void onNewCreateButton(ActionEvent event) throws Exception {
         JDBC jdbc = JDBC.getDefault();
-        String sql = "INSERT INTO user(user, password, ifroot) VALUES (\'" + new_user.getText() + "\',\'" + new_password.getText() + "\'," + (new_ifroot.isSelected() ? "1" : "0") + ")";
+        String sql = new StringBuilder().append("INSERT INTO user(user, password, ifroot) VALUES (\'")
+                .append(new_user.getText()).append("\',\'").append(new_password.getText()).append("\',").append(new_ifroot.isSelected() ? "1" : "0").append(")").toString();
         System.out.println(sql);
         jdbc.CUDSql(sql);
         queryAllUser();
@@ -92,7 +106,7 @@ public class ComponentUserController {
         if (strChoice.equals("全部")) {
             queryAllUser();
             return;
-        } else if (strChoice.equals(ifroot)) {
+        } else if (strChoice.equals("ifroot")) {
             sql = sql + strChoice + " =" + condition.getText();
         } else {
             String strCondition = condition.getText();
@@ -136,20 +150,28 @@ public class ComponentUserController {
         user.setCellValueFactory(new PropertyValueFactory<>("user"));
         password.setCellValueFactory(new PropertyValueFactory<>("password"));
         ifroot.setCellValueFactory(new PropertyValueFactory<>("ifroot"));
-
         choice.setValue(all);
-
         queryAllUser();
     }
 
     private void queryAllUser() throws SQLException, ClassNotFoundException {
-        data.clear();
-        JDBC jdbc = JDBC.getDefault();
-        String sql = "select user, password, ifroot from user";
-        List<UserData> userDataList = jdbc.executeQuery(sql, UserData.class);
-        for (UserData userData : userDataList) {
-            data.add(userData);
-        }
-        table.setItems(data);
+        new Thread(() -> {
+            try {
+                data.clear();
+                JDBC jdbc = JDBC.getDefault();
+                String sql = "select user, password, ifroot from user";
+                List<UserData> userDataList = jdbc.executeQuery(sql, UserData.class);
+                for (UserData userData : userDataList) {
+                    data.add(userData);
+                }
+                table.setItems(data);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 }
+
+

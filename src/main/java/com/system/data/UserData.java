@@ -1,8 +1,12 @@
 package com.system.data;
+import com.alibaba.excel.annotation.ExcelProperty;
 
 public class UserData {
+    @ExcelProperty("用户名")
     private String user;
+    @ExcelProperty("密码")
     private String password;
+    @ExcelProperty("是否为管理员")
     private Integer ifroot;
 
     public UserData() {
