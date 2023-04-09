@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="608.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/11"
+            fx:controller="com.windows.controller.PageRegisterController">
+   <children>
+      <ImageView fitHeight="608.0" fitWidth="682.0" layoutX="-5.0">
+         <image>
+            <Image url="@../res/04.jpg"/>
+         </image>
+      </ImageView>
+      <Label layoutX="161.0" layoutY="54.0" prefHeight="118.0" prefWidth="423.0" text="   Register">
+         <font>
+            <Font name="Microsoft New Tai Lue Bold" size="68.0"/>
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.30722891566265065" centerY="0.6071428571428571" radius="0.5">
+               <stops>
+                  <Stop color="#1622c6"/>
+                  <Stop color="#1823c4" offset="0.10667311411992253"/>
+                  <Stop color="#1924c2" offset="0.1276595744680851"/>
+                  <Stop color="#a80c0c" offset="1.0"/>
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <InnerShadow color="#00000033"/>
+         </effect>
+      </Label>
+      <Label layoutX="67.0" layoutY="221.0" text="Account" textFill="#ff0c0c">
+         <font>
+            <Font name="Txt_IV50" size="32.0"/>
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="338.0" text="Password" textFill="#ff0c0c">
+         <font>
+            <Font name="Txt_IV50" size="32.0"/>
+         </font>
+      </Label>
+      <TextField fx:id="account" layoutX="248.0" layoutY="219.0" style="-fx-background-radius: 30px;">
+         <font>
+            <Font name="Microsoft Sans Serif" size="24.0"/>
+         </font>
+         <effect>
+            <SepiaTone level="0.5"/>
+         </effect>
+      </TextField>
+      <TextField fx:id="password" layoutX="248.0" layoutY="336.0" style="-fx-background-radius: 30px;">
+         <font>
+            <Font name="Microsoft Sans Serif" size="24.0"/>
+         </font>
+         <effect>
+            <SepiaTone level="0.5"/>
+         </effect>
+      </TextField>
+      <Button fx:id="register" layoutX="188.0" layoutY="426.0" mnemonicParsing="false" onAction="#onRegister"
+              prefHeight="59.0" prefWidth="120.0" text="注册" textFill="#453490">
+         <font>
+            <Font name="Microsoft JhengHei Bold" size="24.0"/>
+         </font>
+         <effect>
+            <ColorAdjust brightness="0.28" contrast="0.33" hue="-0.08" saturation="-0.17"/>
+         </effect>
+      </Button>
+      <Button fx:id="cancel" layoutX="435.0" layoutY="426.0" mnemonicParsing="false" onAction="#onCancel"
+              prefHeight="59.0" prefWidth="120.0" text="取消" textFill="#453490">
+         <effect>
+            <ColorAdjust brightness="0.28" contrast="0.33" hue="-0.08" saturation="-0.17"/>
+         </effect>
+         <font>
+            <Font name="Microsoft JhengHei Bold" size="24.0"/>
+         </font>
+      </Button>
+      <Label fx:id="info" layoutX="257.0" layoutY="160.0" prefHeight="39.0" prefWidth="316.0" textFill="#ff0c0c">
+         <font>
+            <Font name="Txt_IV50" size="32.0"/>
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

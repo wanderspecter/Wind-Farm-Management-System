@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class ComponentWindFarm extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/com/windows/tab01.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/com/windows/ComponentWindFarm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Welcome to WindFarm Management System!");
         stage.setScene(scene);

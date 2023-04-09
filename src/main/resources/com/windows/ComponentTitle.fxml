@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="40.0" prefWidth="490.0" stylesheets="@../css/base.css"
+            xmlns="http://javafx.com/javafx/11" fx:controller="com.windows.controller.ComponentTitleController">
+    <ToolBar fx:id="Tool" prefHeight="82.0" prefWidth="822.0">
+        <items>
+            <Label id="title" prefHeight="71.0" prefWidth="483.0" stylesheets="@../css/base.css" text="风电场管理系统">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label id="now-time" fx:id="time" layoutX="10.0" layoutY="11.0" prefHeight="33.0" prefWidth="281.0"
+                   stylesheets="@../css/base.css" text="2021-08-08  00:00:00" wrapText="true"/>
+        </items>
+    </ToolBar>
+</AnchorPane>

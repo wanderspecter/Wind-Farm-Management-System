@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.leewyatt.rxcontrols.controls.RXLineButton;
 import com.system.data.WindFarmData;
 import com.system.mysql.JDBC;
+import com.system.utils.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -89,64 +91,75 @@ public class ComponentFarmManageController {
         private TextField wind_speed;
         @FXML
         private TableColumn<WindFarmData, String> num_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> diameter_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> height_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> blades_co;
-        @FXML
-        private TableColumn<WindFarmData, Float> power_co;
-        @FXML
-        private TableColumn<WindFarmData, String> wind_arrange_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> wind_speed_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> rotation_speed_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> in_wind_speed_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> out_wind_speed_co;
-        @FXML
-        private TableColumn<WindFarmData, Float> size_co;
-        @FXML
-        private TableColumn<WindFarmData, Integer> weight_co;
-        @FXML
-        private ChoiceBox choice;
-        @FXML
-        private TextField condition2;
-        @FXML
-        private String all;
+    @FXML
+    private TableColumn<WindFarmData, Integer> diameter_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> height_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> blades_co;
+    @FXML
+    private TableColumn<WindFarmData, Float> power_co;
+    @FXML
+    private TableColumn<WindFarmData, String> wind_arrange_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> wind_speed_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> rotation_speed_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> in_wind_speed_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> out_wind_speed_co;
+    @FXML
+    private TableColumn<WindFarmData, Float> size_co;
+    @FXML
+    private TableColumn<WindFarmData, Integer> weight_co;
+    @FXML
+    private ChoiceBox choice;
+    @FXML
+    private TextField condition2;
+    @FXML
+    private String all;
 
-        public ComponentFarmManageController() {
+    @FXML
+    private JFXButton gen;
+
+    public ComponentFarmManageController() {
+    }
+
+    @FXML
+    void onGen(ActionEvent event) throws Exception {
+        File file = Tools.openWindow();
+        if (file != null) {
+            Tools.getXlsx(file, data, WindFarmData.class);
         }
+    }
 
-        @FXML
-        void onDeleteButton(ActionEvent event) throws Exception {
-                JDBC jdbc = JDBC.getDefault();
-                String sql = String.format("delete from turbines " +
-                        "WHERE num = \'%s\' and diameter = %d and " +
-                        "height=%d and blades=%d and power=%f and wind_arrange=\'%s\' and wind_speed=%d and rotation_speed=%d and in_wind_speed=%d and " +
-                        "out_wind_speed=%d and size=%f and weight=%d", selectData.getNum(), selectData.getDiameter(), selectData.getHeight(), selectData.getBlades(), selectData.getPower(), selectData.getWind_arrange(), selectData.getWind_speed(), selectData.getRotation_speed(), selectData.getIn_wind_speed(), selectData.getOut_wind_speed(), selectData.getSize(), selectData.getWeight());
-                System.out.println(sql);
-                jdbc.CUDSql(sql);
-                queryAllWindFarm();
-                num.setText("");
-                diameter.setText("");
-                height.setText("");
-                blades.setText("");
-                power.setText("");
-                wind_arrange.setText("");
-                wind_speed.setText("");
-                rotation_speed.setText("");
-                in_wind_speed.setText("");
-                out_wind_speed.setText("");
-                size.setText("");
-                weight.setText("");
-        }
+    @FXML
+    void onDeleteButton(ActionEvent event) throws Exception {
+        JDBC jdbc = JDBC.getDefault();
+        String sql = String.format("delete from turbines " +
+                "WHERE num = \'%s\' and diameter = %d and " +
+                "height=%d and blades=%d and power=%f and wind_arrange=\'%s\' and wind_speed=%d and rotation_speed=%d and in_wind_speed=%d and " +
+                "out_wind_speed=%d and size=%f and weight=%d", selectData.getNum(), selectData.getDiameter(), selectData.getHeight(), selectData.getBlades(), selectData.getPower(), selectData.getWind_arrange(), selectData.getWind_speed(), selectData.getRotation_speed(), selectData.getIn_wind_speed(), selectData.getOut_wind_speed(), selectData.getSize(), selectData.getWeight());
+        System.out.println(sql);
+        jdbc.CUDSql(sql);
+        queryAllWindFarm();
+        num.setText("");
+        diameter.setText("");
+        height.setText("");
+        blades.setText("");
+        power.setText("");
+        wind_arrange.setText("");
+        wind_speed.setText("");
+        rotation_speed.setText("");
+        in_wind_speed.setText("");
+        out_wind_speed.setText("");
+        size.setText("");
+        weight.setText("");
+    }
 
-        @FXML
-        void onNewClearButton(ActionEvent event) {
+    @FXML
+    void onNewClearButton(ActionEvent event) {
                 new_num.setText("");
                 new_diameter.setText("");
                 new_height.setText("");
@@ -279,14 +292,25 @@ public class ComponentFarmManageController {
         }
 
         public void queryAllWindFarm() throws SQLException, ClassNotFoundException {
+            new Thread(() -> {
+                JDBC jdbc = null;
+                List<WindFarmData> windFarmDataList = null;
+                try {
+                    jdbc = JDBC.getDefault();
+                    String sql = "select * from turbines";
+                    windFarmDataList = jdbc.executeQuery(sql, WindFarmData.class);
+
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
                 data.clear();
-                JDBC jdbc = JDBC.getDefault();
-                String sql = "select num, diameter, height, blades, power, wind_arrange,wind_speed,rotation_speed,in_wind_speed,out_wind_speed,size,weight from turbines";
-                List<WindFarmData> windFarmDataList = jdbc.executeQuery(sql, WindFarmData.class);
                 for (WindFarmData windFarmData : windFarmDataList) {
-                        data.add(windFarmData);
+                    data.add(windFarmData);
                 }
                 table.setItems(data);
+            }).start();
         }
 
         @FXML
