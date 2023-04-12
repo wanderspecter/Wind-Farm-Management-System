@@ -9,7 +9,7 @@ file_url=".\processed_datas\data252.xlsx"
 first_train_data=0
 last_train_data=20640
 first_train_col=0
-last_train_col=9
+last_train_col=8
 select_index=20640
 scaler=StandardScaler()
 
@@ -26,7 +26,6 @@ y_true=data_tr.iloc[select_index:,8]
 x=range(1,26304-select_index)
 
 
-
 X_train=np.array(X_train)
 y_train=np.array(y_train)
 X_pre=np.array(X_pre)
@@ -35,22 +34,28 @@ y_true=np.array(y_true)
 std_X_train=scaler.fit_transform(X_train)
 std_X_pre=scaler.fit_transform(X_pre)
 
-model = MLPRegressor(hidden_layer_sizes=(7,), random_state=10,
+model = MLPRegressor(hidden_layer_sizes=(16,9 ,10 ,10), random_state=10,
                      activation="relu",
                      solver='adam', alpha=0.0001,
                      batch_size='auto', learning_rate="constant",
-                     learning_rate_init=0.01, power_t=0.5, max_iter=5000, tol=1e-4
+                     learning_rate_init=0.001, power_t=0.5, max_iter=5000, tol=1e-4
                      )  # Define the BPNeuralNetworkRegressor model
 model.fit(std_X_train, y_train)  # Fit in datas and train model
 y_pre = model.predict(std_X_pre)
-# joblib.dump(model,"save_model/MLP_ver2.0")
+joblib.dump(model,"saved_model/model252")
 
-mse = np.abs(y_true - y_pre).mean()
-# print(mse)
-mean = np.abs(y_pre[:]).mean()
-value = 100 - mse * 100 / mean
-print(y_pre)
-print(str(value) + "%")
-plt.plot(x, y_pre, 'b')
-plt.plot(x, y_true, 'r')
-plt.show()# Plot the figure of pre_value
+# mse = np.abs(y_true - y_pre).mean()
+# # print(mse)
+# mean = np.abs(y_pre[:]).mean()
+# value = 100 - mse * 100 / mean
+out_str=""
+for i in y_pre:
+    out_str+=str(i)+" "
+print(out_str)
+#     out_str+=str(i)+" "
+# print(out_str)
+
+# # print(str(value) + "%")
+# plt.plot(x, y_pre, 'b')
+# plt.plot(x, y_true, 'r')
+# plt.show()# Plot the figure of pre_value
