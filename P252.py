@@ -5,12 +5,35 @@ import sys
 import joblib
 
 
-data_tr=[]
-for i in range(1,len(sys.argv)):
-    data_tr.append(sys.argv[i])
+l0=[]
+l1=[]
+l2=[]
+l3=[]
+l4=[]
+l5=[]
+l6=[]
+l7=[]
 
-data_tr=pd.DataFrame(data_tr)
-data=np.array(data_tr).T
+data={'0':l0,'1':l1,'2':l2,'3':l3,'4':l4,'5':l5,'6':l6,'7':l7,}
+for i in range(1,len(sys.argv)):
+    if i%4==1:
+        l1.append(sys.argv[i])
+    elif i%4==2:
+        l2.append(sys.argv[i])
+    elif i%4==3:
+        l3.append(sys.argv[i])
+    elif i%4==4:
+        l3.append(sys.argv[i])
+    elif i%4==5:
+        l3.append(sys.argv[i])
+    elif i%4==6:
+        l3.append(sys.argv[i])
+    elif i%4==7:
+        l3.append(sys.argv[i])
+    elif i%4==0:
+        l0.append(sys.argv[i])
+data=pd.DataFrame(data)
+data=np.array(data)
 std_data=StandardScaler().fit_transform(data)
 
 
